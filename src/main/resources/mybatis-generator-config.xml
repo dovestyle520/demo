@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--mybatis生成工具的帮助文档可以看：-->
+    <!--英文：http://www.mybatis.org/generator/usage/mysql.html-->
+    <!--中文：http://www.mybatis.tk/-->
+    <!--中文：http://mbg.cndocs.tk/-->
+    <classPathEntry
+            location="D:\maven\m2\repository\mysql\mysql-connector-java\5.1.45\mysql-connector-java-5.1.45.jar"/>
+    <context id="context" targetRuntime="MyBatis3">
+        <!--设置编码格式-->
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/test"
+                        userId="root" password="root"/>
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://10.20.0.216:3306/ods_test"-->
+        <!--userId="ods" password="sunvalley"/>-->
+        <!--要生成的 domain 模块位置-->
+        <javaModelGenerator targetPackage="com.marquess.demo.model" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+            <property name="comments" value="true"/>
+        </javaModelGenerator>
+        <!--要生成的 Mapper.xml 文件位置-->
+        <sqlMapGenerator targetPackage="com.marquess.demo.dao" targetProject="src/main/resources/mapper">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!--要生成的 Mapper 接口类-->
+        <javaClientGenerator targetPackage="com.marquess.demo.dao" targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+        <!--table tableName="so_order_feedback">
+            <generatedKey column="Id" sqlStatement="mysql" identity="true"/>
+            <columnOverride column="comments" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="your_response" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    </table-->
+
+        <table tableName="user">
+            <generatedKey column="Id" sqlStatement="mysql" identity="true" />
+        </table>
+
+        <!--<table tableName="sales_report_rate">-->
+        <!--<generatedKey column="Id" sqlStatement="mysql" identity="true" />-->
+        <!--</table>-->
+
+        <!--<table tableName="so_finance_report_final">-->
+        <!--<generatedKey column="Id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="amazon_fba_storage_fee">-->
+        <!--<generatedKey column="Id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="sales_payment_reports">-->
+        <!--<generatedKey column="Id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="sku_campaign_report_byday">-->
+        <!--<generatedKey column="Id" sqlStatement="mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<plugin type="cc.bandaotixi.plugins.BatchInsertPlugin"></plugin>-->
+        <!--<plugin type="cc.bandaotixi.plugins.BatchUpdatePlugin"></plugin>-->
+    </context>
+</generatorConfiguration>
