@@ -41,6 +41,12 @@ public class TestController {
         return "ss";
     }
 
+    @RequestMapping(value = "/getProductId")
+    @ResponseBody
+    public String getData() {
+        return "ss";
+    }
+    
     @RequestMapping(value = "/getUserList")
     @ResponseBody
     public BaseReturnVO getUserList() {
