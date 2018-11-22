@@ -57,5 +57,6 @@ spring:
 #        max-idel: 8
 #        max-wait: -1
 #        min-idle: 0
+#  ## ssa
 mybatis:
      mapper-locations: classpath*:mapper/com/marquess/demo/dao/*.xml
