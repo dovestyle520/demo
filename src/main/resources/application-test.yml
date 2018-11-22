@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    driver-class-name : com.mysql.jdbc.Driver
+    url : jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&jdbcCompliantTruncation=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&rewriteBatchedStatements=true
+    username : root
+    password : root1
+    type : com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size : 20
+      min-idle : 1
+      max-active : 500
+      max-wait : 60000
+      time-between-eviction-runs-millis : 60000
+      min-evictable-idle-time-millis : 300000
+      max-evictable-idle-time-millis : 300000
+      validation-query : SELECT 1
+      validation-query-timeout : 30000
+      test-while-idle : true
+      test-on-borrow : false
+      test-on-return : false
+      pool-prepared-statements : false
+      max-pool-prepared-statement-per-connection-size : 20
+      max-open-prepared-statements : 20
+      filters : stat,slf4j
+      filter:
+        slf4j:
+          enabled: true
+          statement-executable-sql-log-enable: true
