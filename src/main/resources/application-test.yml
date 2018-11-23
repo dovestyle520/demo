@@ -26,3 +26,12 @@ spring:
         slf4j:
           enabled: true
           statement-executable-sql-log-enable: true
+    rabbitmq:
+      host: 127.0.0.1
+      port: 5672
+      #username: guest
+      #password: guest
+      username: admin
+      password: admin
+      publisher-confirms: true
+      virtual-host: /
