@@ -1,9 +1,6 @@
 package com.marquess.demo.controller;
 
-import com.marquess.demo.rabbitMQ.HelloReceiver1;
-import com.marquess.demo.rabbitMQ.HelloSender1;
-import com.marquess.demo.rabbitMQ.HelloSender2;
-import com.marquess.demo.rabbitMQ.UserSender;
+import com.marquess.demo.rabbitMQ.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +14,12 @@ public class RabbitTestController {
     private HelloSender2 helloSender2;
     @Autowired
     private UserSender userSender;
+    @Autowired
+    private TopicSender topicSender;
+    @Autowired
+    private FanoutSender fanoutSender;
+    @Autowired
+    private CallBackSender callBackSender;
     @Autowired
     private HelloReceiver1 helloReceiver1;
 
@@ -45,5 +48,20 @@ public class RabbitTestController {
     @RequestMapping("/userTest")
     public void userTest() {
         userSender.send();
+    }
+
+    @RequestMapping("/topicTest")
+    public void topicTest() {
+        topicSender.send();
+    }
+
+    @RequestMapping("/fanoutTest")
+    public void fanoutTest() {
+        fanoutSender.send();
+    }
+
+    @RequestMapping("/callback")
+    public void callbak() {
+        callBackSender.send();
     }
 }

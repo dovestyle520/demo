@@ -1,8 +1,14 @@
 package com.marquess.demo.configuration;
 
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.rabbit.annotation.RabbitHandler;
+import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 
 @Configuration
@@ -93,4 +99,16 @@ public class RabbitMQConfigration {
     Binding bindingExchangeC(Queue CMessage, FanoutExchange fanoutExchange) {
         return BindingBuilder.bind(CMessage).to(fanoutExchange);
     }
+
+//    @Bean
+//    public ConnectionFactory connectionFactory() {
+//        return new CachingConnectionFactory();
+//    }
+
+//    @Bean
+//    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+//    public RabbitTemplate rabbitTemplateNew() {
+//        RabbitTemplate template = new RabbitTemplate(connectionFactory());
+//        return template;
+//    }
 }
