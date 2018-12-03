@@ -53,6 +53,12 @@ public class TestController {
         return userService.getUserList();
     }
 
+    @RequestMapping(value = "/getUser")
+    @ResponseBody
+    public String getUser() {
+        return userService.getUser();
+    }
+
     @PostMapping(value = "/user/login")
     @ResponseBody
     public HashMap login() {
