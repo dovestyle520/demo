@@ -12,6 +12,9 @@ import java.util.UUID;
 
 public class DistributedLock {
 
+    //@Autowired
+    //private static JedisPool jedisPool;
+
     private final JedisPool jedisPool;
 
     public DistributedLock(JedisPool jedisPool) {

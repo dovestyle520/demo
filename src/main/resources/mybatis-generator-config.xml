@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
@@ -7,13 +7,37 @@
     <!--英文：http://www.mybatis.org/generator/usage/mysql.html-->
     <!--中文：http://www.mybatis.tk/-->
     <!--中文：http://mbg.cndocs.tk/-->
-    <classPathEntry
-            location="D:\maven\m2\repository\mysql\mysql-connector-java\5.1.45\mysql-connector-java-5.1.45.jar"/>
-    <context id="context" targetRuntime="MyBatis3">
+    <!--<classPathEntry-->
+            <!--location="E:\maven\repo\mysql\mysql-connector-java\5.1.47\mysql-connector-java-5.1.47.jar"/>-->
+
+
+    <!--<plugin type="cc.bandaotixi.plugins.BatchInsertPlugin"/>-->
+    <!--<plugin type="cc.bandaotixi.plugins.BatchUpdatePlugin"/>-->
+
+
+
+    <context id="myContext" targetRuntime="MyBatis3">
+
+
+
         <!--设置编码格式-->
         <property name="javaFileEncoding" value="UTF-8"/>
+        <plugin type="com.itfsw.mybatis.generator.plugins.ModelColumnPlugin"></plugin>
+        <plugin type="com.itfsw.mybatis.generator.plugins.BatchInsertPlugin">
+            <!--
+            开启后可以实现官方插件根据属性是否为空决定是否插入该字段功能
+            ！需开启allowMultiQueries=true多条sql提交操作，所以不建议使用！插件默认不开启
+            -->
+            <property name="allowMultiQueries" value="false"/>
+        </plugin>
         <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/test"
                         userId="root" password="root"/>
+
+        <!-- 生成批量配置 -->
+        <!--<plugin type="cc.bandaotixi.plugins.BatchInsertPlugin" />-->
+        <!--<plugin type="cc.bandaotixi.plugins.BatchUpdatePlugin" />-->
+
+
         <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://10.20.0.216:3306/ods_test"-->
         <!--userId="ods" password="sunvalley"/>-->
         <!--要生成的 domain 模块位置-->
@@ -26,10 +50,18 @@
         <sqlMapGenerator targetPackage="com.marquess.demo.dao" targetProject="src/main/resources/mapper">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
+
         <!--要生成的 Mapper 接口类-->
         <javaClientGenerator targetPackage="com.marquess.demo.dao" targetProject="src/main/java" type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
+
+        <!--<javaClientGenerator targetPackage="com.marquess.demo.daoEX" targetProject="src/main/java" type="XMLMAPPER">-->
+            <!--<property name="enableSubPackages" value="false"/>-->
+        <!--</javaClientGenerator>-->
+
+
+
         <!--table tableName="so_order_feedback">
             <generatedKey column="Id" sqlStatement="mysql" identity="true"/>
             <columnOverride column="comments" javaType="java.lang.String" jdbcType="VARCHAR" />
@@ -37,6 +69,36 @@
 	    </table-->
 
         <table tableName="user">
+            <generatedKey column="Id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table tableName="product">
+            <generatedKey column="Id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table tableName="product_card">
+            <generatedKey column="Id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table tableName="goods">
+            <generatedKey column="Id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table tableName="order">
+            <generatedKey column="Id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table tableName="product_img">
+            <generatedKey column="Id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table tableName="refund_record">
+            <generatedKey column="Id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table tableName="refund_result">
+            <generatedKey column="Id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table tableName="staff_info">
+            <generatedKey column="Id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table tableName="unified_order_record">
+            <generatedKey column="Id" sqlStatement="mysql" identity="true" />
+        </table>
+        <table tableName="crm_transfer">
             <generatedKey column="Id" sqlStatement="mysql" identity="true" />
         </table>
 
@@ -59,7 +121,10 @@
         <!--<table tableName="sku_campaign_report_byday">-->
         <!--<generatedKey column="Id" sqlStatement="mysql" identity="true"/>-->
         <!--</table>-->
-        <!--<plugin type="cc.bandaotixi.plugins.BatchInsertPlugin"></plugin>-->
-        <!--<plugin type="cc.bandaotixi.plugins.BatchUpdatePlugin"></plugin>-->
+
+        <!--<plugin type="com.itfsw.mybatis.generator.plugins.BatchInsertPlugin" > </plugin>-->
+    </context>
+    <context id="myContext2" targetRuntime="MyBatis3">
+
     </context>
 </generatorConfiguration>
